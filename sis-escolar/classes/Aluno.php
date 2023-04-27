@@ -51,6 +51,19 @@
 
         }
 
+        public function ajustaGenero()
+        {
+            if($genero == 1){
+                $genero = "masculino";
+            }else{
+                $genero = "Feminino";
+            }
+
+            if($this->matricula == 1){
+                $matricula = 'sim';
+            }
+        }
+
         public function listar(){
             $sql = "SELECT * FROM tb_alunos";
 
@@ -99,8 +112,8 @@
 
         public function atualizar(){
             
-            $sql = "UPDATE tb_turmas SET
-                        nameAluno = '$this->descTurma' ,
+            $sql = "UPDATE tb_alunos SET
+                        nomeAluno = '$this->nomeAluno' ,
                         dataNasc = '$this->dataNasc' ,
                         email = '$this->email' , 
                         tel = '$this->tel' , 
@@ -118,7 +131,6 @@
             $conexao = new PDO('mysql:host=127.0.0.1;dbname=sis-escolar','root','');
         
             $conexao->exec($sql);
-
 
         }
 

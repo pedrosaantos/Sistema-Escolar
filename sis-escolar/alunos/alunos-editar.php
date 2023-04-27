@@ -76,7 +76,7 @@
 
     <fieldset>
 
-        <form action="alunos-gravar.php" method="POST">
+        <form action="alunos-editar-gravar.php" method="POST">
 
         <input type="hidden" name="id" value="<?= $aluno->id ?>" value="Gravar">
 

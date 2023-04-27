@@ -4,7 +4,7 @@
 
     $id = $_POST['id'];
 
-    $aluno = new Aluno();
+    $aluno = new Aluno($id);
 
     $aluno->nomeAluno = $_POST['nomeAluno'];
     $aluno->dataNasc = $_POST['dataNasc'];
@@ -23,6 +23,5 @@
     $aluno->atualizar();
 
     header('location: alunos-listar.php');
-
 
 ?>
