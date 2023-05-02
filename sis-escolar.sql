@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Abr-2023 às 22:23
+-- Tempo de geração: 02-Maio-2023 às 22:34
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -72,7 +72,8 @@ CREATE TABLE `tb_disciplinas` (
 
 INSERT INTO `tb_disciplinas` (`id`, `nomeDisciplina`, `cargaHora`) VALUES
 (6, 'Matemática', '120'),
-(7, 'Inglês', '80');
+(7, 'Inglês', '80'),
+(8, 'Quimica', '150');
 
 -- --------------------------------------------------------
 
@@ -126,19 +127,19 @@ ALTER TABLE `tb_turmas`
 -- AUTO_INCREMENT de tabela `tb_alunos`
 --
 ALTER TABLE `tb_alunos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `tb_disciplinas`
 --
 ALTER TABLE `tb_disciplinas`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `tb_turmas`
 --
 ALTER TABLE `tb_turmas`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
