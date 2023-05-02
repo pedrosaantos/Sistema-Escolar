@@ -14,8 +14,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
- 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
     <title>Sistema Acadêmico</title>
 
     <script>    
@@ -68,11 +68,40 @@
     </script>
 
 </head>
-<body class="container">
+<body class=" bg-dark">
 
-    <h1>Sistema Acadêmico</h1>
+<header class="mb-4">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand">Sistema Acadêmico</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../menu.html">Volatr ao Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../alunos/alunos-listar.php">Alunos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../turmas/turmas-listar.php">Turmas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../disciplinas/disciplinas-listar.php">Disciplinas</a>
+              </li>            
+            </ul>
+            
+            <a class="btn btn-danger" href="#">Logout</a>
 
-    <h3>Cadastro de Alunos</h3>
+          </div>
+        </div>
+      </nav>
+</header>
+
+<div class="container bg-dark text-light">
+    <h1 class="my-3 fs-2 fw-bold">Atualizar Dados de Alunos</h1>
 
     <fieldset>
 
@@ -80,59 +109,126 @@
 
         <input type="hidden" name="id" value="<?= $aluno->id ?>" value="Gravar">
 
-            <label for="nomeAluno">Nome:</label>
-            <input  class="form-control" type="text" name="nomeAluno" value="<?= $aluno->nomeAluno ?>">
+            <div class="row my-4">
+                <div class="form-group col-8">
+                    <div class="form-floating">
+                        <input class="form-control" type="text" name="nomeAluno" value="<?= $aluno->nomeAluno ?>" required>
+                        <label for="nomeAluno">Nome:</label>
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <div class="form-floating">
+                        <input  class="form-control" type="date" name="dataNasc" value="<?= $aluno->dataNasc ?>" required>
+                        <label for="dataNasc">Data de Nascimento:</label>
+                    </div>
+                </div>
+            </div>
 
-            <label for="dataNasc">Data de Nascimento:</label>
-            <input  class="form-control" type="date" name="dataNasc" value="<?= $aluno->dataNasc ?>">
+            <div class="row my-4">
+                <div class="form-group col-7">
+                    <div class="form-floating">
+                        <input  class="form-control" type="email" name="email" value="<?= $aluno->email ?>" required>                 
+                        <label for="email">E-mail:</label>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <div class="form-floating">
+                        <input  class="form-control" type="text" name="tel" value="<?= $aluno->tel ?>">
+                        <label for="tel">Telefone:</label>
+                    </div>
+                </div>
+            </div>
 
-            <label for="email">E-mail:</label>
-            <input  class="form-control" type="email" name="email" value="<?= $aluno->email ?>">
+            <div class="row my-4">
+                <div class="form-group col-4">
+                    <div class="form-floating">
+                        <input  class="form-control" type="text" name="cep" id="cep" value="<?= $aluno->cep ?>" required
+                                onchange="pesquisacep(this.value); ">
+                        <label for="cep">CEP:</label>
+                    </div>
+                </div>
+                <div class="form-group col-8">
+                    <div class="form-floating">
+                        <input  class="form-control" type="text" name="rua" id="rua" value="<?= $aluno->rua ?>">
+                        <label for="rua">Endereço:</label>
+                    </div>
+                </div>
+            </div>
 
-            <label for="tel">Telefone:</label>
-            <input  class="form-control" type="text" name="tel" value="<?= $aluno->tel ?>">
+            <div class="row my-4">
+                <div class="form-group col-2">
+                    <div class="form-floating">
+                        <input  class="form-control" type="number" name="numero" value="<?= $aluno->numero ?>" required>
+                        <label for="numero">Nº:</label>
+                    </div>
+                </div>
+                <div class="form-group col-4">
+                    <div class="form-floating">
+                        <input  class="form-control" type="text" name="bairro" id="bairro" value="<?= $aluno->bairro ?>">
+                        <label for="bairro">Bairro:</label>
+                    </div>
+                    </div>
+                <div class="form-group col-4">
+                    <div class="form-floating">
+                        <input  class="form-control" type="text" name="cidade" id="cidade" value="<?= $aluno->cidade ?>">
+                        <label for="cidade">Cidade:</label>
+                    </div>
+                </div>
+                <div class="form-group col-2">
+                    <div class="form-floating">
+                        <input  class="form-control" type="text" name="uf" id="uf" value="<?= $aluno->uf ?>">
+                        <label for="uf">Estado</label>
+                    </div>
+                </div> 
+            </div>
 
-            <label for="cep">CEP:</label>
-            <input  class="form-control" type="text" name="cep" id="cep" value="<?= $aluno->cep ?>"
-                    onchange="pesquisacep(this.value); ">
+            <div class="row my-4 g-2">
+                
+                <div class="form-group pt-3 col-6">
+                    <label class="badge bg-primary text-wrap" for="genero">Gênero:</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genero" id="mas" value="1">
+                        <label class="form-check-label" for="mas">Masculino</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="genero" id="fem" value="2">
+                        <label class="form-check-label" for="fem">Feminino</label>
+                    </div>
+                </div>
 
-            <label for="rua">Endereço:</label>
-            <input  class="form-control" type="text" name="rua" id="rua" value="<?= $aluno->rua ?>">
 
-            <label for="numero">Nº:</label>
-            <input  class="form-control" type="number" name="numero" id="" value="<?= $aluno->numero ?>">
+                <div class="form-group col-6">
+                    <div class="form-floating">
+                            <select class="form-select" name="turma" id="turma" required>
+                            <option selected value="1">DSM 1</option>
+                            <option value="2">DSM 2</option>
+                            <option value="3">DSM 3</option>
+                            </select>
+                        <label for="turma">Selecione uma opção...</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-4">
+                <div class="col-12">
+                    <div class="form-check">
+                    <input class="form-check-input mt-2" type="checkbox" name="matricula" id="matricula" value="<?= $aluno->matricula ?>" checked>
+                    <label class="form-check-label fs-5" for="matricula">
+                        Matricula Ativa
+                    </label>
+                    </div>
+                </div>
+            </div>
+        
+            <input class="btn btn-primary btn-lg font-weight-bold" type="submit" value="Salvar">
 
-            <label for="bairro">Bairro:</label>
-            <input  class="form-control" type="text" name="bairro" id="bairro" value="<?= $aluno->bairro ?>">
-
-            <label for="cidade">Cidade:</label>
-            <input  class="form-control" type="text" name="cidade" id="cidade" value="<?= $aluno->cidade ?>">
-
-            <label for="uf">Estado</label>
-            <input  class="form-control" type="text" name="uf" id="uf" value="<?= $aluno->uf ?>">
-
-            <label for="genero">Gênero:</label>
-
-                <input type="radio" name="genero" id="masc" value="1">
-                <label for="masc">Masculino</label>
-
-                <input type="radio" name="genero" id="femi" value="0">
-                <label for="femi">Feminino</label>
-
-            <label for="turma">Turma:</label>
-            <select name="turma" id="">
-                <option value="0">Selecione uma opção...</option>
-                <option value="1">DSM 1</option>
-                <option value="2">DSM 2</option>
-            </select>
-
-            <label for="matricula">Matrícula Ativa:</label>
-            <input type="checkbox" name="matricula" value="1" value="<?= $aluno->matricula ?>" checked>
-
-            <br><input class="btn btn-success font-weight-bold" type="submit" value="Gravar">
         </form>
 
     </fieldset>
+</div>
+
+<footer class="fixed-bottom align-items-center py-3 my-2 border-top text-light">
+    <p class="text-center ">Desenvolvido por <strong>Pedro dos Santos</strong></p>
+</footer>
 
     <a style="display: none;" href="https://viacep.com.br/ws/13974664/json/?callback=meu_callback">Chamando JSON</a>
 

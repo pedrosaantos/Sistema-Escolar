@@ -23,7 +23,9 @@ class Disciplina{
 
     $conexao->exec($sql);
 
-    echo "Registro Gravado com Sucesso!!!";
+    header('Location: disciplinas-listar.php');
+
+    // echo "Registro Gravado com Sucesso!!!";
 
     }
 

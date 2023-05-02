@@ -31,7 +31,10 @@ class Turma{
     // Executa a string SQL na conexão, inserindo os dados na tabela "tb_turmas"
     $conexao->exec($sql);
 
-    echo "Registro Gravado com Sucesso!!!";
+    header('Location: turmas-listar.php');
+
+    // echo "Registro Gravado com Sucesso!!!";
+
 
     }
 

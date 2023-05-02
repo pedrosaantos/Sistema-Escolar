@@ -47,22 +47,11 @@
 
             $conexao->exec($sql);
 
-            echo "<h1>Registro Gravado com Sucesso!!!</h1>";
+            // echo "<h1>Registro Gravado com Sucesso!!!</h1>";
+            header('Location: alunos-listar.php');
 
         }
 
-        public function ajustaGenero()
-        {
-            if($genero == 1){
-                $genero = "masculino";
-            }else{
-                $genero = "Feminino";
-            }
-
-            if($this->matricula == 1){
-                $matricula = 'sim';
-            }
-        }
 
         public function listar(){
             $sql = "SELECT * FROM tb_alunos";
