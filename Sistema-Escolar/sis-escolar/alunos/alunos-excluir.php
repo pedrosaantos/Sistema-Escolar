@@ -8,6 +8,7 @@
 
     $aluno->excluir();
 
+    //echo $id;
     header('location: alunos-listar.php');
 
 ?>

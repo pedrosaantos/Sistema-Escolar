@@ -63,6 +63,7 @@
                     <tr class="table-group-divider">
                         <th class="text-center fs-4" scope="col">Código</th>
                         <th class="fs-4" scope="col">Disciplina</th>
+                        <th class="fs-4" scope="col">Professores</th>
                         <th class="fs-4" scope="col">Carga Horária</th>
                         <th class="fs-4" scope="col">Ações</th>
                     </tr>
@@ -72,7 +73,8 @@
                     <?php foreach ($lista as $linha): ?>
                     <tr>
                         <td class="text-center fw-bold"><?php echo $linha['id'] ?></td>
-                        <td><?php echo $linha['nomeDisciplina'] ?></td>
+                        <td><?php echo $linha['nomeDisc'] ?></td>
+                        <td><?php echo $linha['professor'] ?></td>
                         <td><?php echo $linha['cargaHora'] ?></td>
                         <td>
                             <a class="btn btn-warning" href="disciplinas-editar.php?id=<?= $linha['id'] ?>" role="button">
@@ -94,9 +96,13 @@
                 </tbody>
             </table>
         </div>
+
+        <a href="../leitura-dados.php"><button class="my-4 btn btn-success" type="button">Importar Disciplinas</button></a>
+
     </div>
 
-    <footer class="fixed-bottom align-items-center py-3 my-2 border-top text-light">
+
+    <footer class="align-items-center py-3 my-2 border-top text-light">
         <p class="text-center ">Desenvolvido por <strong>Pedro dos Santos</strong></p>
     </footer>
 

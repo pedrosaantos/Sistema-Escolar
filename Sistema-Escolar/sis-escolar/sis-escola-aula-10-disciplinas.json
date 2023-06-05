@@ -1,0 +1,46 @@
+[
+  {
+    "nome": "Engenharia de Software I",
+    "professor": "Professor Tiago",
+    "carga": 80
+  },
+  {
+    "nome": "Design Digital",
+    "professor": "Professor Júnior",
+    "carga": 60
+  },
+  {
+    "nome": "Modelagem de Banco de Dados",
+    "professor": "Professor Mateus",
+    "carga": 80
+  },
+  {
+    "nome": "Desenvolvimento Web I",
+    "professor": "Professor Tiago",
+    "carga": 60
+  },
+  {
+    "nome": "Banco de Dados Relacional",
+    "professor": "Professor Mateus",
+    "carga": 60
+  },
+  {
+    "nome": "Algoritmo e Lógica de Programação",
+    "professor": "Professor Júnior",
+    "carga": 80
+  },
+  {
+    "nome": "Engenharia de Software II",
+    "professor": "Professora Ana Célia",
+    "carga": 60
+  },  {
+    "nome": "Desenvolvimento Web II",
+    "professor": "Professor Júnior",
+    "carga": 80
+  },
+  {
+    "nome": "Técnica de Programação II",
+    "professor": "Professor Júnior",
+    "carga": 60
+  } 
+]

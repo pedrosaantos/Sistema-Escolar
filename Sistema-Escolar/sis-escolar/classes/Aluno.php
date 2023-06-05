@@ -56,8 +56,7 @@
 
 
         public function listar(){
-            $sql = "SELECT * FROM tb_alunos a JOIN tb_turmas t
-            ON a.turma_id = t.id ORDER BY a.id";
+            $sql = "SELECT A.*, T.descTurma FROM tb_alunos A INNER JOIN tb_turmas T ON A.turma_id = T.id ORDER BY A.id";
 
             $conexao = new PDO('mysql:host=127.0.0.1;dbname=sis-escolar','root','');
 
@@ -69,9 +68,8 @@
         }
 
         public function excluir(){
-            $sql = "DELETE FROM tb_alunos a JOIN tb_turmas t 
-            ON a.turma_id = t.id 
-            WHERE a.id=".$this->id;
+            $sql = "DELETE FROM tb_alunos 
+            WHERE id=".$this->id;
 
             $conexao = new PDO('mysql:host=127.0.0.1;dbname=sis-escolar','root','');
 
@@ -80,9 +78,7 @@
 
         public function carregar(){
             
-            $sql = "SELECT * FROM tb_alunos a JOIN tb_turmas t 
-            ON a.turma_id = t.id 
-            WHERE a.id=" .$this->id;
+            $sql = "SELECT A.* FROM tb_alunos A INNER JOIN tb_turmas T ON A.turma_id = T.id WHERE A.id=".$this->id;
 
             $conexao = new PDO('mysql:host=127.0.0.1;dbname=sis-escolar','root','');
 
