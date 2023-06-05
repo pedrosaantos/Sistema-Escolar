@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02-Jun-2023 às 02:46
+-- Tempo de geração: 06-Jun-2023 às 01:52
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.1.12
 
@@ -53,8 +53,7 @@ INSERT INTO `tb_alunos` (`id`, `nomeAluno`, `dataNasc`, `cpf`, `email`, `tel`, `
 (1, 'Pedro', '2003-08-11', '43698499845', 'pedro@email.com', '19991577560', '13974664', 'Rua das Ameixas', '99', 'Loteamento de Chácaras de Recreio Jardim Planalto', 'Itapira', 'SP', '', 10, 1),
 (3, 'Cleber', '1994-12-15', '99999999900', 'cleber@email.com', '1940029822', '13970430', 'Rua José Pereira', '126', 'Vila Pereira', 'Itapira', 'SP', '', 10, 1),
 (6, 'Pedro dos Santos', '2003-08-11', '11111111101', 'pedro@email.com', '19991577560', '13974664', 'Rua das Ameixas', '99', 'Loteamento de Chácaras de Recreio Jardim Planalto', 'Itapira', 'SP', '', 10, 1),
-(8, 'Casimiro', '1994-05-13', 'casimiro@email', '44444444444', '11111111111', '13974391', 'Rua 24 de Outubro', '222', 'Santa Cruz', 'Itapira', 'SP', '1', 13, 0),
-(9, 'Casimiro', '1999-06-23', 'casimiro@email', '44444444444', '11111111111', '13974391', 'Rua 24 de Outubro', '222', 'Santa Cruz', 'Itapira', 'SP', '1', 13, 0);
+(8, 'Casimiro', '1994-05-13', 'casimiro@email', '44444444444', '11111111111', '13974391', 'Rua 24 de Outubro', '222', 'Santa Cruz', 'Itapira', 'SP', '1', 13, 0);
 
 -- --------------------------------------------------------
 
@@ -87,17 +86,46 @@ INSERT INTO `tb_alunos2` (`id`, `nome`, `turma_id`, `foto`) VALUES
 
 CREATE TABLE `tb_disciplinas` (
   `id` int(8) NOT NULL,
-  `nomeDisciplina` varchar(40) NOT NULL,
-  `cargaHora` varchar(10) NOT NULL
+  `nomeDisc` varchar(50) NOT NULL,
+  `professor` varchar(50) NOT NULL,
+  `cargaHora` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Extraindo dados da tabela `tb_disciplinas`
 --
 
-INSERT INTO `tb_disciplinas` (`id`, `nomeDisciplina`, `cargaHora`) VALUES
+INSERT INTO `tb_disciplinas` (`id`, `nomeDisc`, `professor`, `cargaHora`) VALUES
+(1, 'Engenharia de Software I', 'Professor Tiago', '80'),
+(2, 'Design Digital', 'Professor Júnior', '60'),
+(3, 'Modelagem de Banco de Dados', 'Professor Mateus', '80'),
+(4, 'Desenvolvimento Web I', 'Professor Tiago', '60'),
+(5, 'Banco de Dados Relacional', 'Professor Mateus', '60'),
+(6, 'Algoritmo e Lógica de Programação', 'Professor Júnior', '80'),
+(7, 'Engenharia de Software II', 'Professora Ana Célia', '60'),
+(8, 'Desenvolvimento Web II', 'Professor Júnior', '80'),
+(9, 'Técnica de Programação II', 'Professor Júnior', '60');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_disciplinas3`
+--
+
+CREATE TABLE `tb_disciplinas3` (
+  `id` int(8) NOT NULL,
+  `nomeDisciplina` varchar(40) NOT NULL,
+  `cargaHora` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Extraindo dados da tabela `tb_disciplinas3`
+--
+
+INSERT INTO `tb_disciplinas3` (`id`, `nomeDisciplina`, `cargaHora`) VALUES
 (6, 'Matemática', '120'),
-(8, 'Inglês', '120');
+(8, 'Inglês', '120'),
+(9, 'Educação Física', '80');
 
 -- --------------------------------------------------------
 
@@ -164,6 +192,12 @@ ALTER TABLE `tb_disciplinas`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `tb_disciplinas3`
+--
+ALTER TABLE `tb_disciplinas3`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `tb_turmas`
 --
 ALTER TABLE `tb_turmas`
@@ -195,7 +229,13 @@ ALTER TABLE `tb_alunos2`
 -- AUTO_INCREMENT de tabela `tb_disciplinas`
 --
 ALTER TABLE `tb_disciplinas`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de tabela `tb_disciplinas3`
+--
+ALTER TABLE `tb_disciplinas3`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `tb_turmas`
