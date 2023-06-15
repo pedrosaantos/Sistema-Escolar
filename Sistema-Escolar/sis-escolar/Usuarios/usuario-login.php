@@ -1,7 +1,9 @@
 <?php
 
     $usuario = $_POST["usuario"];
-    $senha = $_POST["senha"];
+    $senhalimpa = $_POST["senha"];
+    $senha = hash("sha256", $senhalimpa);
+
 
     $sql = "SELECT * FROM tb_usuarios WHERE usuario='{$usuario}' and senha='{$senha}'";
 

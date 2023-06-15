@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06-Jun-2023 às 01:52
+-- Tempo de geração: 15-Jun-2023 às 02:22
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.1.12
 
@@ -158,16 +158,19 @@ INSERT INTO `tb_turmas` (`id`, `descTurma`, `ano`) VALUES
 CREATE TABLE `tb_usuarios` (
   `id` int(8) NOT NULL,
   `usuario` varchar(20) NOT NULL,
-  `senha` varchar(10) NOT NULL
+  `senha` varchar(100) NOT NULL,
+  `datacad` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Extraindo dados da tabela `tb_usuarios`
 --
 
-INSERT INTO `tb_usuarios` (`id`, `usuario`, `senha`) VALUES
-(1, 'junior', '123'),
-(5, 'admin', 'admin');
+INSERT INTO `tb_usuarios` (`id`, `usuario`, `senha`, `datacad`) VALUES
+(1, 'junior', '123', ''),
+(5, 'admin', 'admin', ''),
+(7, 'Pedro', 'ee5cd7d5d96c8874117891b2c92a036f96918e66c102bc698ae77542c186f981', '15-06-2023'),
+(8, 'Maria', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', '15-06-2023');
 
 --
 -- Índices para tabelas despejadas
@@ -247,7 +250,7 @@ ALTER TABLE `tb_turmas`
 -- AUTO_INCREMENT de tabela `tb_usuarios`
 --
 ALTER TABLE `tb_usuarios`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
